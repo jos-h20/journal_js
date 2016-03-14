@@ -1,10 +1,9 @@
-var pingPong = require('./ping-pong.js').pingPong;
-var prompt = require('prompt');
-prompt.start();
+var moment = require('moment');
+moment().format();
 
-prompt.get('goal', function(err, result){
-  var output = pingPong(result.goal);
-  output.forEach(function(element){
-    console.log(element);
-  });
-});
+function myFunction(){
+var jason = moment([1986, 10, 6]).fromNow();
+console.log(moment().format());
+}
+
+myFunction();

@@ -1,21 +1,14 @@
-var pingPong = require('./../js/ping-pong.js').pingPong;
+var Journal = require('./../js/journal.js').Journal;
+var moment = require('moment');
 
 $(document).ready(function(){
-  $('#ping-pong').submit(function(event){
+  $('#journal').submit(function(event){
     event.preventDefault();
-    var goal = $('#goal').val();
-    var output = pingPong(goal);
-    output.forEach(function(element){
-      $('#solution').append("<li>" + element + "</li>");
+    var title = $('#title').val();
+    var body = $('#body').val();
+    var entry = new Journal(title, body);
+    var count = entry.countWords();
+    $('#word-count').text(count);
+    $('#date').text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
     });
   });
-});
-
-$(document).ready(function(){
-  $('#signup').submit(function(event){
-    event.preventDefault();
-    var email = $('#email').val();
-    $('#signup').hide();
-    $('#solution').prepend('<p>Thank you, ' + email + ' has been added to our list!</p>');
-  });
-});

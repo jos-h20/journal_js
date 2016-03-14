@@ -4,7 +4,7 @@ var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var utilities = require('gulp-util');
-var buildProduction = utilities.env.production;
+var buildProduction = utilities.env.live;
 var del = require('del');
 var jshint = require('gulp-jshint');
 
@@ -33,7 +33,7 @@ gulp.task("clean", function(){
   return del(['build', 'tmp']);
 });
 
-gulp.task("build", ['clean'], function(){
+gulp.task("default", ['clean'], function(){
   if (buildProduction) {
     gulp.start('minifyScripts');
   } else {
@@ -46,4 +46,3 @@ gulp.task('jshint', function(){
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
-
