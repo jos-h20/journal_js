@@ -12,3 +12,7 @@ $(document).ready(function(){
     $('#date').text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
     });
   });
+
+$(document).ready(function(){
+  $('#time').text(moment());
+});
