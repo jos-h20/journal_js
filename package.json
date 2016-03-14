@@ -18,5 +18,8 @@
     "gulp-util": "^3.0.7",
     "jshint": "^2.9.1",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "prompt": "^1.0.0"
   }
 }
